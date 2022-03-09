@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	searchField := []int{2, 5, 8, 12, 16, 23, 38, 56, 72, 91}
-	searchNumber := 12
+	searchNumber := 23
 
 	fmt.Printf("Searching for %d in list %v\n", searchNumber, searchField)
 	result, searchCount := binarySearch(searchField, searchNumber)

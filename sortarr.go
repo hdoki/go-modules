@@ -31,7 +31,8 @@ func sortarr(arr []Cust) []Cust {
 }
 
 func main() {
-	var customers, xyz []Cust
+	var customers = make([]Cust, 5)
+	var xyz []Cust
 	for i := 0; i < 5; i++ {
 		fmt.Println("Enter custid , Name:")
 		customers[i].set_cust()
