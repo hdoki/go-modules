@@ -13,7 +13,7 @@ func (c *cust) set_cust() {
 	fmt.Scan(&c.name)
 }
 
-func sortarr(arr []cust) {
+/* func sortarr(arr []cust) {
 	var temp cust
 	for i := 0; i < len(arr)-1; i++ {
 		for j := i + 1; j < len(arr); j++ {
@@ -27,7 +27,7 @@ func sortarr(arr []cust) {
 	}
 	fmt.Println("sorted array is", arr)
 }
-
+*/
 func main() {
 	var customers [5]cust
 	for i := 0; i < 5; i++ {
@@ -36,5 +36,5 @@ func main() {
 	}
 
 	fmt.Println(customers)
-	fmt.Println(sortarr(customers))
+	//fmt.Println(sortarr(customers))
 }
