@@ -49,4 +49,4 @@ func main() {
 	b = Binarysearch(k, list)
 	fmt.Println(b)
 
-}
+} //not working for false

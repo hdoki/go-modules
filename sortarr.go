@@ -26,7 +26,7 @@ func sortarr(arr []Cust) []Cust {
 
 		}
 	}
-	//fmt.Println("sorted array is", arr)
+	fmt.Println("sorted array is", arr)
 	return arr
 }
 
