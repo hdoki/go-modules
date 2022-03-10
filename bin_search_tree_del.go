@@ -44,20 +44,13 @@ func (n *Node) Search(k int) bool {
 	} else {
 		if n.Key < k {
 			//move right
-			if n.Right.Key == k {
-				return true
-			} else {
-				return n.Right.Search(k)
-			}
-		} else if n.Key > k {
-			if n.Left.Key == k {
-				return true
-			} else {
-				return n.Left.Search(k)
-			}
+			return n.Right.Search(k)
+		} else {
+			return n.Left.Search(k)
 		}
-		return false
 	}
+	return false
+
 }
 
 func main() {
@@ -68,7 +61,7 @@ func main() {
 	tree.Insert(15)
 	tree.Insert(10)
 	fmt.Println(*tree)
-	fmt.Println(tree.Search(5))
+	fmt.Println(tree.Search(11))
 	fmt.Println(Count)
 
 }
