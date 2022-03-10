@@ -8,7 +8,7 @@ type Node struct {
 	Right *Node
 }
 
-//var Count int
+var Count int
 
 func (n *Node) Insert(k int) {
 	if n.Key == k {
@@ -32,8 +32,32 @@ func (n *Node) Insert(k int) {
 	}
 }
 
-func (n *Node) Search(k int) {
+func (n *Node) Search(k int) bool {
 
+	Count = Count + 1
+	if n == nil {
+		return false
+	}
+
+	if n.Key == k {
+		return true
+	} else {
+		if n.Key < k {
+			//move right
+			if n.Right.Key == k {
+				return true
+			} else {
+				return n.Right.Search(k)
+			}
+		} else if n.Key > k {
+			if n.Left.Key == k {
+				return true
+			} else {
+				return n.Left.Search(k)
+			}
+		}
+		return false
+	}
 }
 
 func main() {
@@ -41,7 +65,10 @@ func main() {
 	fmt.Printf("Root: %d", tree.Key)
 	tree.Insert(20)
 	tree.Insert(120)
-	tree.Insert(100)
+	tree.Insert(15)
+	tree.Insert(10)
 	fmt.Println(*tree)
+	fmt.Println(tree.Search(120))
+	fmt.Println(Count)
 
 }
