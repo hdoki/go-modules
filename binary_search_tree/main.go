@@ -46,6 +46,7 @@ func (n *Node) Search(k int) bool {
 			//move right
 			return n.Right.Search(k)
 		} else {
+			//move left
 			return n.Left.Search(k)
 		}
 	}

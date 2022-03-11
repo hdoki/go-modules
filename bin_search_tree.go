@@ -60,7 +60,7 @@ func (n *Node) Search(k int) bool {
 	}
 }
 
-func main() {
+func main2() {
 	tree := &Node{Key: 100}
 	fmt.Printf("Root: %d", tree.Key)
 	tree.Insert(20)
@@ -68,7 +68,7 @@ func main() {
 	tree.Insert(15)
 	tree.Insert(10)
 	fmt.Println(*tree)
-	fmt.Println(tree.Search(5))
+	fmt.Println(tree.Search(10))
 	fmt.Println(Count)
 
 }
