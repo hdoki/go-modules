@@ -11,8 +11,8 @@ const (
 	host     = "localhost"
 	port     = 5432
 	user     = "postgres"
-	password = "somePassword"
-	dbname   = "MyDB"
+	password = "postgres"
+	dbname   = "myDB"
 )
 
 func main() {
@@ -39,16 +39,16 @@ func main() {
 		selection = false
 		switch n {
 		case 1: //select
-			rows, err := db.Query(`SELECT "id", "name" FROM "emp" ORDER BY "id"`)
+			rows, err := db.Query(`SELECT "empid", "name" FROM "emp" ORDER BY "empid"`)
 			CheckError(err)
 			defer rows.Close()
 			for rows.Next() {
-				var id int
+				var empid int
 				var name string
 
-				err = rows.Scan(&id, &name)
+				err = rows.Scan(&empid, &name)
 				CheckError(err)
-				fmt.Println(id, name)
+				fmt.Println(empid, name)
 			}
 			countstmt := `select count(*) from emp`
 			c := 0
@@ -58,17 +58,17 @@ func main() {
 			break
 
 		case 2: //insert
-			sqlstmt := `insert into "emp"("id","name") values(1,'aaa')`
+			sqlstmt := `insert into "emp"("empid","name") values(1,'aaa')`
 			_, err := db.Exec(sqlstmt)
 			CheckError(err)
 			fmt.Println("Successfully Inserted Row")
 		case 3: //Update
-			sqlstmt := `update "emp" set "id"=$1, "name"=$2 where "id"=$3`
+			sqlstmt := `update "emp" set "empid"=$1, "name"=$2 where "empid"=$3`
 			_, e := db.Exec(sqlstmt, 9, "Mary", 1)
 			CheckError(e)
 			fmt.Println("Update Successful")
 		case 4: //Delete
-			sqlstmt := `delete from "emp" where "id"=$1`
+			sqlstmt := `delete from "emp" where "empid"=$1`
 			_, e := db.Exec(sqlstmt, 9)
 			CheckError(e)
 			fmt.Println("Row deleted")
